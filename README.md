@@ -20,6 +20,7 @@ Install [Python](https://www.python.org/downloads/)
 4) Run logsdb.py
 
 ##Output
+
 The sample file sample.txt shows the format of output
 
 ##Code Layout
