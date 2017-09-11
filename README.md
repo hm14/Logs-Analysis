@@ -6,12 +6,17 @@ Install [Python](https://www.python.org/downloads/)
 
 ##Configuration
 1) Make sure that the newsdata.sql database file is in the same directory as the one in which you run the logsdb.py python file.
+
 2) Run the following commands to connect and load news database from newsdata.sql:
     psql -d news -f newsdata.sql
     psql -d news
+
 3) Create the following views:
-    i) c.execute("create view requests as select time::timestamp::date as request_date, cast(count(status) as float) as requests from log group by request_date;")
-    ii) c.execute("create view errors as select time::timestamp::date as error_date, cast(count(status) as float) as errors from log where status != '200 OK' group by error_date;")
+
+    i) create view requests as select time::timestamp::date as request_date, cast(count(status) as float) as requests from log group by request_date;
+
+ii) create view errors as select time::timestamp::date as error_date, cast(count(status) as float) as errors from log where status != '200 OK' group by error_date;
+
 4) Run logsdb.py
 
 ##Output
